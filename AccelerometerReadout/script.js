@@ -1,8 +1,5 @@
-let acl = new Accelerometer({frequency: 60});
-acl.addEventListener('reading', () => {
-  document.getElementByID("ax").innerHTML = acl.x.toString();
-  document.getElementByID("ay").innerHTML = acl.y.toString();
-  document.getElementByID("az").innerHTML = acl.z.toString();
-});
-
-acl.start();
+addEventListener('devicemotion', event => function () {
+  document.getElementByID("ax").innerHTML = event.acceleration.x.toString();
+  document.getElementByID("ay").innerHTML = event.acceleration.y.toString();
+  document.getElementByID("az").innerHTML = event.acceleration.z.toString();
+}, true);
